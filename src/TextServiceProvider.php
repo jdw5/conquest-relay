@@ -17,9 +17,6 @@ class TextServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('text')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_text_table')
-            ->hasCommand(TextCommand::class);
+            ->hasConfigFile();
     }
 }
