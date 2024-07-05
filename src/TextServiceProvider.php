@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Conquest\Text;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use Conquest\Text\Commands\TextCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class TextServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('text')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_text_table')
+            ->hasCommand(TextCommand::class);
     }
 }
