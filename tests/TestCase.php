@@ -20,10 +20,8 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->withoutExceptionHandling();
         $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class);
-
         $this->publishTestView();
     }
     protected function getPackageProviders($app)

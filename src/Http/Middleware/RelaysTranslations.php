@@ -14,14 +14,13 @@ class RelaysTranslations extends Middleware
         app()->setLocale(Relay::getLanguage());
 
         return array_merge(parent::share($request), [
-            'languages' => LangResource::collection(
-                array_map(fn ($key, $label) => [$key, $label],
-                    array_keys(config('relay.languages')), 
-                    config('relay.languages'))
-                ),
+            'languages' => collect(config('relay.languages'))
+                ->map(fn ($label, $key) => [
+                    'value' => $key,
+                    'label' => $label
+                ])->values(),
             'language' => app()->getLocale(),
-
-            'translations' => Relay::retrieveTranslations()
+            'translations' => Relay::getTranslations()
         ]);
     }
 }

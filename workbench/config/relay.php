@@ -8,6 +8,9 @@ return [
     'languages' => [
         'en' => 'English',
         'es' => 'Español'
-    ]
+    ],
+    'excludes' => [
+        'validation.php',
+    ],
 ];
 

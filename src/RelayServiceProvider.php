@@ -2,6 +2,7 @@
 
 namespace Conquest\Relay;
 
+use Conquest\Relay\Relay;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -23,9 +24,4 @@ class RelayServiceProvider extends PackageServiceProvider
     {
         parent::boot();
     }
-
-    // public function register(): void
-    // {
-    //     $this->app->singleton(Relay::class);
-    // }
 }
