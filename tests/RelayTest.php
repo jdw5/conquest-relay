@@ -1,7 +1,6 @@
 <?php
 
 use Conquest\Relay\Facades\Relay;
-use Conquest\Relay\Http\Resources\LangResource;
 
 it('can test', function () {
     // dd(config('relay'));

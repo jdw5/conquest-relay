@@ -2,7 +2,6 @@
 
 namespace Conquest\Relay\Tests;
 
-use Conquest\Relay\Http\Middleware\SetLanguage;
 use Conquest\Relay\Http\Middleware\RelaysTranslations;
 use Illuminate\Foundation\Http\Kernel;
 
@@ -23,7 +22,7 @@ class HttpKernel extends Kernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            
+
         ],
     ];
 }

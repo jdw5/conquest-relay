@@ -11,6 +11,7 @@ class SetLanguage
     public function handle(Request $request, Closure $next)
     {
         app()->setLocale(Relay::getLanguage());
+
         return $next($request);
     }
 }

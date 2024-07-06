@@ -5,5 +5,5 @@ return [
     'path' => base_path('lang'),
     'languages' => [
         'en' => 'English',
-    ]
+    ],
 ];

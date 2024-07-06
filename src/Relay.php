@@ -24,7 +24,7 @@ class Relay
         };
 
     }
-    
+
     public function availableLanguageKeys(): array
     {
         return array_keys(config('relay.languages'));
@@ -37,7 +37,7 @@ class Relay
 
     public function getRelayPath(): string
     {
-        return rtrim(config('relay.path'), '/') . '/'.app()->getLocale();
+        return rtrim(config('relay.path'), '/').'/'.app()->getLocale();
     }
 
     public function retrieveTranslations(): array
@@ -47,7 +47,7 @@ class Relay
             ->flatMap(function ($file) {
                 return Arr::dot(
                     File::getRequire($file->getRealPath()),
-                    $file->getBasename('.' . $file->getExtension()) . '.'
+                    $file->getBasename('.'.$file->getExtension()).'.'
                 );
             })->toArray();
     }

@@ -1,9 +1,7 @@
 <?php
 
-use Conquest\Relay\Facades\Relay;
-use Inertia\Testing\AssertableInertia;
-use Conquest\Relay\Http\Resources\LangResource;
 use Illuminate\Support\Arr;
+use Inertia\Testing\AssertableInertia;
 
 beforeEach(function () {
     app()->setLocale(config('app.locale'));
@@ -48,7 +46,7 @@ it('stores the valid selected language in the session', function () {
 
 it('sets the language correctly', function () {
     $response = $this->post('/language', [
-        'language' => $language = 'es'
+        'language' => $language = 'es',
     ]);
 
     $response
@@ -58,7 +56,7 @@ it('sets the language correctly', function () {
 
 it('sets the default language if invalid language is provided', function () {
     $response = $this->post('/language', [
-        'language' => '_'
+        'language' => '_',
     ]);
 
     $response
@@ -69,8 +67,7 @@ it('sets the default language if invalid language is provided', function () {
 it('shares translations', function () {
     $this->get('/index')->assertInertia(function (AssertableInertia $page) {
         Arr::get($page->toArray(), 'props.translations');
-            
-        
+
         // $page->component('Index')
         //     ->has('translations', 5);
     });

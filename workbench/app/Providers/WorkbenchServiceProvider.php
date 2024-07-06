@@ -2,20 +2,15 @@
 
 namespace Workbench\App\Providers;
 
-use Mockery;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Conquest\Relay\Http\Middleware\RelaysTranslations;
 
 class WorkbenchServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
      */
-    public function register(): void
-    {
-
-    }
+    public function register(): void {}
 
     /**
      * Bootstrap services.
