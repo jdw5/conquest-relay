@@ -10,5 +10,7 @@ class LanguageStoreController extends Controller
     public function __invoke(Request $request)
     {
         StoreLanguage::fromRequest($request);
+
+        return back();
     }
 }

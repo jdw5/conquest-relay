@@ -5,6 +5,7 @@ namespace Conquest\Text;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Conquest\Text\Commands\TextCommand;
+use Conquest\Text\Http\Resources\LangResource;
 
 class TextServiceProvider extends PackageServiceProvider
 {
@@ -20,8 +21,14 @@ class TextServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
-    public function register(): void
+    public function boot()
     {
-        $this->app->singleton(Text::class);
+        parent::boot();
+        LangResource::withoutWrapping();
     }
+
+    // public function register(): void
+    // {
+    //     $this->app->singleton(Text::class);
+    // }
 }
