@@ -2,21 +2,18 @@
 
 namespace Conquest\Relay\Tests;
 
-use Mockery;
-use Inertia\ServiceProvider;
-use Illuminate\Http\JsonResponse;
 use Conquest\Relay\RelayServiceProvider;
-use Orchestra\Testbench\Concerns\CreatesApplication;
-use Orchestra\Testbench\TestCase as Orchestra;
+use Inertia\ServiceProvider;
 use Orchestra\Testbench\Concerns\WithWorkbench;
+use Orchestra\Testbench\TestCase as Orchestra;
 use Workbench\App\Providers\WorkbenchServiceProvider;
 
 use function Orchestra\Testbench\workbench_path;
 
 class TestCase extends Orchestra
-{    
+{
     use WithWorkbench;
-        
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -24,6 +21,7 @@ class TestCase extends Orchestra
         $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class);
         $this->publishTestView();
     }
+
     protected function getPackageProviders($app)
     {
         return [
@@ -61,8 +59,8 @@ class TestCase extends Orchestra
         $viewPath = __DIR__.'/stubs/app.blade.php';
         $publishPath = base_path('resources/views/app.blade.php');
 
-        if (!file_exists($publishPath)) {
-            if (!is_dir(dirname($publishPath))) {
+        if (! file_exists($publishPath)) {
+            if (! is_dir(dirname($publishPath))) {
                 mkdir(dirname($publishPath), 0755, true);
             }
             copy($viewPath, $publishPath);

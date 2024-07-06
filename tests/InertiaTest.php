@@ -1,7 +1,6 @@
 <?php
 
 use Inertia\Testing\AssertableInertia;
-use Illuminate\Support\Arr;
 
 beforeEach(function () {
     app()->setLocale(config('app.locale'));

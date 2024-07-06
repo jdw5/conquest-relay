@@ -62,7 +62,7 @@ class Relay
      */
     public function getRelayPath(): string
     {
-        return rtrim(config('relay.path'), '/') . '/'.app()->getLocale();
+        return rtrim(config('relay.path'), '/').'/'.app()->getLocale();
     }
 
     /**
