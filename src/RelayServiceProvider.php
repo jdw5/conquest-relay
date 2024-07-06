@@ -1,14 +1,11 @@
 <?php
 
-namespace Conquest\Text;
+namespace Conquest\Relay;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Conquest\Text\Commands\TextCommand;
-use Conquest\Text\Http\Resources\LangResource;
-use Illuminate\Http\Resources\Json\JsonResource;
 
-class TextServiceProvider extends PackageServiceProvider
+class RelayServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -18,18 +15,17 @@ class TextServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('text')
+            ->name('relay')
             ->hasConfigFile();
     }
 
     public function boot()
     {
         parent::boot();
-        LangResource::withoutWrapping();
     }
 
     // public function register(): void
     // {
-    //     $this->app->singleton(Text::class);
+    //     $this->app->singleton(Relay::class);
     // }
 }

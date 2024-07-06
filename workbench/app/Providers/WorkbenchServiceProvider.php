@@ -5,7 +5,7 @@ namespace Workbench\App\Providers;
 use Mockery;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Conquest\Text\Http\Middleware\SharesTranslations;
+use Conquest\Relay\Http\Middleware\RelaysTranslations;
 
 class WorkbenchServiceProvider extends ServiceProvider
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Conquest\Text\Enums;
+namespace Conquest\Relay\Enums;
 
 enum Lang: string
 {

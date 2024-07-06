@@ -1,12 +1,13 @@
 <?php
 
-namespace Conquest\Text\Http\Resources;
+namespace Conquest\Relay\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LangResource extends JsonResource
 {
+    public static $wrap = null;
     /**
      * Transform the resource into an array.
      *

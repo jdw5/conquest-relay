@@ -1,19 +1,21 @@
 <?php
 
-namespace Conquest\Text\Tests;
+namespace Conquest\Relay\Tests;
 
 use Mockery;
 use Inertia\ServiceProvider;
 use Illuminate\Http\JsonResponse;
-use Conquest\Text\TextServiceProvider;
+use Conquest\Relay\RelayServiceProvider;
 use Orchestra\Testbench\Concerns\CreatesApplication;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Orchestra\Testbench\Concerns\WithWorkbench;
+use Workbench\App\Providers\WorkbenchServiceProvider;
+
+use function Orchestra\Testbench\workbench_path;
 
 class TestCase extends Orchestra
 {    
     use WithWorkbench;
-    // use CreatesApplication;
         
     protected function setUp(): void
     {
@@ -24,20 +26,19 @@ class TestCase extends Orchestra
 
         $this->publishTestView();
     }
-    // protected function getPackageProviders($app)
-    // {
-    //     return [
-    //         TextServiceProvider::class,
-    //         ServiceProvider::class,
-    //     ];
-    // }
+    protected function getPackageProviders($app)
+    {
+        return [
+            RelayServiceProvider::class,
+            ServiceProvider::class,
+            WorkbenchServiceProvider::class,
+        ];
+    }
 
     protected function getEnvironmentSetUp($app)
     {
-        // Load your package configuration
-        $app['config']->set('text', require __DIR__.'/../config/text.php');
+        $app['config']->set('relay', require workbench_path('config/relay.php'));
 
-        // Set up a basic Inertia configuration
         $app['config']->set('inertia', [
             'testing' => [
                 'ensure_pages_exist' => false,
@@ -54,7 +55,7 @@ class TestCase extends Orchestra
 
     protected function resolveApplicationHttpKernel($app)
     {
-        $app->singleton('Illuminate\Contracts\Http\Kernel', 'Conquest\Text\Tests\HttpKernel');
+        $app->singleton('Illuminate\Contracts\Http\Kernel', 'Conquest\Relay\Tests\HttpKernel');
     }
 
     protected function publishTestView()

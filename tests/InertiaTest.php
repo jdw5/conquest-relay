@@ -1,7 +1,9 @@
 <?php
 
+use Conquest\Relay\Facades\Relay;
 use Inertia\Testing\AssertableInertia;
-use Conquest\Text\Http\Resources\LangResource;
+use Conquest\Relay\Http\Resources\LangResource;
+use Illuminate\Support\Arr;
 
 beforeEach(function () {
     app()->setLocale(config('app.locale'));
@@ -10,7 +12,7 @@ beforeEach(function () {
 it('contains a list of available languages', function () {
     $this->get('/index')->assertInertia(function (AssertableInertia $page) {
         $page->component('Index')
-            ->has('languages', count(config('text.languages')))
+            ->has('languages', count(config('relay.languages')))
             ->where('languages.0.value', 'en')
             ->where('languages.0.label', 'English')
             ->where('languages.1.value', 'es')
@@ -56,10 +58,20 @@ it('sets the language correctly', function () {
 
 it('sets the default language if invalid language is provided', function () {
     $response = $this->post('/language', [
-        'language' => 'xx'
+        'language' => '_'
     ]);
 
     $response
         ->assertSessionHas('language', config('app.locale'))
         ->assertStatus(302);
+});
+
+it('shares translations', function () {
+    $this->get('/index')->assertInertia(function (AssertableInertia $page) {
+        Arr::get($page->toArray(), 'props.translations');
+            
+        
+        // $page->component('Index')
+        //     ->has('translations', 5);
+    });
 });

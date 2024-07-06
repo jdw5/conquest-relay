@@ -1,15 +1,15 @@
 # Share localized, backend-driven messages as text to your Inertia frontend.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/conquest/text.svg?style=flat-square)](https://packagist.org/packages/conquest/text)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/conquest/relay.svg?style=flat-square)](https://packagist.org/packages/conquest/text)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/conquest/text/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/conquest/text/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/conquest/text/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/conquest/text/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/conquest/text.svg?style=flat-square)](https://packagist.org/packages/conquest/text)
+[![Total Downloads](https://img.shields.io/packagist/dt/conquest/relay.svg?style=flat-square)](https://packagist.org/packages/conquest/text)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/text.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/text)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/relay.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/text)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -52,7 +52,7 @@ php artisan vendor:publish --tag="text-views"
 ## Usage
 
 ```php
-$text = new Conquest\Text();
+$text = new Conquest\Relay();
 echo $text->echoPhrase('Hello, Conquest!');
 ```
 

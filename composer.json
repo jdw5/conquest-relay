@@ -1,12 +1,14 @@
 {
-    "name": "conquest/text",
+    "name": "conquest/relay",
     "description": "Share localized, backend-driven messages as text to your Inertia frontend.",
     "keywords": [
         "Conquest",
         "laravel",
-        "text"
+        "inertia",
+        "relay",
+        "translations"
     ],
-    "homepage": "https://github.com/conquest/text",
+    "homepage": "https://github.com/conquest/relay",
     "license": "MIT",
     "authors": [
         {
@@ -35,12 +37,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Conquest\\Text\\": "src/"
+            "Conquest\\Relay\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Conquest\\Text\\Tests\\": "tests/",
+            "Conquest\\Relay\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -61,7 +63,7 @@
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint",
-        "artisan": "@php vendor/bin/testbench"
+        "artisan": "@php ./vendor/bin/testbench"
     },
     "config": {
         "sort-packages": true,
@@ -73,10 +75,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Conquest\\Text\\TextServiceProvider"
+                "Conquest\\Relay\\RelayServiceProvider"
             ],
             "aliases": {
-                "Text": "Conquest\\Text\\Facades\\Text"
+                "Relay": "Conquest\\Relay\\Facades\\Relay"
             }
         }
     },

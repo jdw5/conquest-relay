@@ -1,16 +1,16 @@
 <?php
 
-namespace Conquest\Text\Http\Middleware;
+namespace Conquest\Relay\Http\Middleware;
 
 use Closure;
-use Conquest\Text\Facades\Text;
+use Conquest\Relay\Facades\Relay;
 use Illuminate\Http\Request;
 
 class SetLanguage
 {
     public function handle(Request $request, Closure $next)
     {
-        app()->setLocale(Text::getLanguage());
+        app()->setLocale(Relay::getLanguage());
         return $next($request);
     }
 }

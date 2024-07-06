@@ -1,13 +1,16 @@
 <?php
 
-use Conquest\Text\Facades\Text;
+use Conquest\Relay\Facades\Relay;
 
-if (! function_exists('text')) {
+if (!function_exists('relay')) {
 
-    function text()
+    function relay(...$keys = null)
     {
-        $instance = Text::getFacadeRoot();
+        $instance = Relay::getFacadeRoot();
 
+        if (!is_null($keys)) {
+            return $instance->keys($keys);
+        }
         return $instance;
     }
 }
