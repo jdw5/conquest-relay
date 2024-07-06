@@ -86,9 +86,8 @@ class Relay
         if (empty($this->keys)) return $translations;
 
         return collect($translations)
-            ->filter(fn ($_, $key) => collect($this->keys)
-                ->some(fn ($pattern) => $pattern === $key || (str_ends_with($pattern, '.*') && str_starts_with($key, substr($pattern, 0, -2))))
-            )->toArray();
+            ->filter(fn ($_, $key) => collect($this->keys)->some(fn ($pattern) => $pattern === $key || (str_ends_with($pattern, '.*') && str_starts_with($key, substr($pattern, 0, -2)))))
+            ->toArray();
     }
 
     /**

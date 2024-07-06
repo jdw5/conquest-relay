@@ -37,3 +37,10 @@ it('uses global helper function', function () {
     expect($translations)->toBeArray()
         ->toHaveLength(collect(require relay()->getRelayPath().'/messages.php')->flatten()->count());
 });
+
+it('changes locale translations', function () {
+    app()->setLocale('es');
+
+    $translations = relay('messages.welcome')->getTranslations();
+    expect(collect($translations)->first())->toBe('Bienvenido a nuestra aplicación');
+});

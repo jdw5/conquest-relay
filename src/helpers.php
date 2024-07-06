@@ -14,7 +14,7 @@ if (!function_exists('relay')) {
     {
         $instance = Relay::getFacadeRoot();
         if (!empty($keys)) {
-            return $instance->keys($keys);
+            return $instance->keys(...$keys);
         }
         return $instance;
     }
