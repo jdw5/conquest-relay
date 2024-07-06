@@ -2,8 +2,7 @@
 
 use Conquest\Relay\Http\Middleware\RelaysTranslations;
 use Illuminate\Support\Facades\Route;
-use Workbench\App\Http\Controllers\IndexController;
-use Workbench\App\Http\Controllers\LanguageStoreController;
+use Workbench\App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +16,6 @@ use Workbench\App\Http\Controllers\LanguageStoreController;
 */
 
 Route::middleware(['web', RelaysTranslations::class])->group(function () {
-    Route::get('/index', IndexController::class)->name('index');
-    Route::post('/language', LanguageStoreController::class)->name('index');
+    Route::get('/index', [Controller::class, 'index'])->name('index');
+    Route::post('/language', [Controller::class, 'store'])->name('index');
 });
