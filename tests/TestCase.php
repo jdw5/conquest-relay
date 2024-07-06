@@ -35,6 +35,8 @@ class TestCase extends Orchestra
     {
         $app['config']->set('relay', require workbench_path('config/relay.php'));
 
+        $app['config']->set('app.key', 'base64:'.base64_encode(random_bytes(32)));
+
         $app['config']->set('inertia', [
             'testing' => [
                 'ensure_pages_exist' => false,
