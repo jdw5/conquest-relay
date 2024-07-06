@@ -19,4 +19,9 @@ class TextServiceProvider extends PackageServiceProvider
             ->name('text')
             ->hasConfigFile();
     }
+
+    public function register(): void
+    {
+        $this->app->singleton(Text::class);
+    }
 }

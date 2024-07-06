@@ -1,11 +1,21 @@
 <?php
 
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
 use Workbench\App\Http\Controllers\IndexController;
 use Workbench\App\Http\Controllers\LanguageStoreController;
 
-Route::get('/', IndexController::class)->name('index');
-Route::get('/language', LanguageStoreController::class)->name('index');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
+Route::middleware('web')->group(function () {
+    Route::get('/index', IndexController::class)->name('index');
+    Route::post('/language', LanguageStoreController::class)->name('index');
+});

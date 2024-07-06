@@ -4,6 +4,7 @@ namespace Workbench\App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Conquest\Text\Http\Middleware\TextMiddleware;
 
 class WorkbenchServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,9 @@ class WorkbenchServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        Route::middlewareGroup('web', [
+            TextMiddleware::class,
+        ]);
     }
 
     /**

@@ -10,8 +10,8 @@ class StoreLanguage
     public static function fromRequest(Request $request)
     {
         match (true) {
-            in_array($request->language, Text::availableLanguageKeys()) => session()->put('language', $request->language),
-            default => session()->put('app.locale')
+            in_array($request->language, Text::availableLanguageKeys()) => session()?->put('language', $request->language),
+            default => session()?->put('app.locale')
         };
     }
 }

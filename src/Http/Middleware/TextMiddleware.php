@@ -16,6 +16,7 @@ class TextMiddleware extends Middleware
                     array_keys(config('text.langs')), 
                     config('text.langs'))
                 )->additional(['wrapper' => null]),
+                
             'language' => app()->getLocale(),
         ]);
     }
