@@ -7,10 +7,9 @@ return [
     'path' => workbench_path('lang'),
     'languages' => [
         'en' => 'English',
-        'es' => 'Español'
+        'es' => 'Español',
     ],
     'excludes' => [
         'validation.php',
     ],
 ];
-

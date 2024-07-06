@@ -11,21 +11,18 @@ class Relay
 
     /**
      * Set the keys to retrieve
-     * 
-     * @param string ...$keys
-     * @return self
+     *
+     * @param  string  ...$keys
      */
     public function keys(...$keys): self
     {
         $this->keys = $keys;
+
         return $this;
     }
 
     /**
      * Set the language in the session
-     * 
-     * @param string|null $languageKey
-     * @return void
      */
     public function setSessionLanguage(?string $languageKey): void
     {
@@ -34,11 +31,9 @@ class Relay
             default => session()->put('language', config('app.locale'))
         };
     }
-    
+
     /**
      * Get the available language keys
-     * 
-     * @return array
      */
     public function availableLanguageKeys(): array
     {
@@ -47,8 +42,6 @@ class Relay
 
     /**
      * Get the language from the session or the default locale
-     * 
-     * @return string
      */
     public function getLanguage(): string
     {
@@ -57,8 +50,6 @@ class Relay
 
     /**
      * Get the path to the translations for the current language
-     * 
-     * @return string
      */
     public function getRelayPath(): string
     {
@@ -67,23 +58,21 @@ class Relay
 
     /**
      * Generate a cache key for each language
-     * 
-     * @return string
      */
     public function getCacheKey(): string
     {
-        return 'relay' . app()->getLocale();
+        return 'relay'.app()->getLocale();
     }
 
     /**
      * Get the translations for the current key set if it exists
-     * 
-     * @return array
      */
     public function getTranslations(): array
     {
         $translations = cache()->rememberForever($this->getCacheKey(), fn () => $this->retrieveTranslations());
-        if (empty($this->keys)) return $translations;
+        if (empty($this->keys)) {
+            return $translations;
+        }
 
         return collect($translations)
             ->filter(fn ($_, $key) => collect($this->keys)
@@ -93,16 +82,14 @@ class Relay
 
     /**
      * Retrieve all translations from the files
-     * 
-     * @return array
      */
     public function retrieveTranslations(): array
-    {        
+    {
         return collect(File::allFiles($this->getRelayPath()))
             ->reject(fn ($file) => in_array($file->getBasename(), config('relay.excludes', [])))
             ->flatMap(fn ($file) => Arr::dot(
                 File::getRequire($file->getRealPath()),
-                $file->getBasename('.' . $file->getExtension()).'.'
+                $file->getBasename('.'.$file->getExtension()).'.'
             ))->toArray();
     }
 }

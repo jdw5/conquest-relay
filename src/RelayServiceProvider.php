@@ -2,7 +2,6 @@
 
 namespace Conquest\Relay;
 
-use Conquest\Relay\Relay;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

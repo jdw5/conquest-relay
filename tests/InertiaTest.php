@@ -45,7 +45,7 @@ it('stores the valid selected language in the session', function () {
 
 it('sets the language correctly', function () {
     $response = $this->post('/language', [
-        'language' => $language = 'es'
+        'language' => $language = 'es',
     ]);
 
     $response
@@ -55,7 +55,7 @@ it('sets the language correctly', function () {
 
 it('sets the default language if invalid language is provided', function () {
     $response = $this->post('/language', [
-        'language' => '_'
+        'language' => '_',
     ]);
 
     $response
