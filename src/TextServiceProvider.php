@@ -6,6 +6,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Conquest\Text\Commands\TextCommand;
 use Conquest\Text\Http\Resources\LangResource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class TextServiceProvider extends PackageServiceProvider
 {

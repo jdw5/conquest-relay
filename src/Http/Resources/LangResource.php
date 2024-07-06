@@ -7,8 +7,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class LangResource extends JsonResource
 {
-
-    public static $wrap = null;
     /**
      * Transform the resource into an array.
      *
@@ -20,5 +18,10 @@ class LangResource extends JsonResource
             'value' => $this->resource[0],
             'label' => $this->resource[1],
         ];
+    }
+
+    public static function wrap($value)
+    {
+        static::$wrap = null;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Conquest\Text\Http\Middleware\TextMiddleware;
+use Conquest\Text\Http\Middleware\SharesTranslations;
 use Illuminate\Support\Facades\Route;
 use Workbench\App\Http\Controllers\IndexController;
 use Workbench\App\Http\Controllers\LanguageStoreController;
@@ -16,7 +16,7 @@ use Workbench\App\Http\Controllers\LanguageStoreController;
 |
 */
 
-Route::middleware(['web', TextMiddleware::class])->group(function () {
+Route::middleware(['web', SharesTranslations::class])->group(function () {
     Route::get('/index', IndexController::class)->name('index');
     Route::post('/language', LanguageStoreController::class)->name('index');
 });

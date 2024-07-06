@@ -2,8 +2,8 @@
 
 return [
     'share' => true,
-    'path' => base_path('lang'),
-    'langs' => [
+    'lang_path' => base_path('lang'),
+    'languages' => [
         // key => Label
         'en' => 'English',
         'es' => 'Español',
