@@ -2,10 +2,9 @@
 
 namespace Conquest\Relay\Http\Middleware;
 
-use Inertia\Middleware;
-use Illuminate\Http\Request;
 use Conquest\Relay\Facades\Relay;
-use Conquest\Relay\Http\Resources\LangResource;
+use Illuminate\Http\Request;
+use Inertia\Middleware;
 
 class RelaysTranslations extends Middleware
 {
@@ -17,10 +16,10 @@ class RelaysTranslations extends Middleware
             'languages' => collect(config('relay.languages'))
                 ->map(fn ($label, $key) => [
                     'value' => $key,
-                    'label' => $label
+                    'label' => $label,
                 ])->values(),
             'language' => app()->getLocale(),
-            'translations' => Relay::getTranslations()
+            'translations' => Relay::getTranslations(),
         ]);
     }
 }

@@ -8,5 +8,5 @@ return [
     ],
     'excludes' => [
         'validation.php',
-    ]
+    ],
 ];
