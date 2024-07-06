@@ -64,12 +64,15 @@ it('sets the default language if invalid language is provided', function () {
         ->assertStatus(302);
 });
 
-it('shares translations', function () {
+it('shares default translations', function () {
     $this->get('/index')->assertInertia(function (AssertableInertia $page) {
-        Arr::get($page->toArray(), 'props.translations');
-            
-        
-        // $page->component('Index')
-        //     ->has('translations', 5);
+        $page->has('translations', collect(require relay()->getRelayPath().'/messages.php')->flatten()->count());
+    });
+});
+
+it('shares selected key translations', function () {
+    relay()->keys('messages.welcome', 'messages.events.*');
+    $this->get('/index')->assertInertia(function (AssertableInertia $page) {
+        $page->has('translations', count(collect(require relay()->getRelayPath().'/messages.php')->get('events')) + 1);
     });
 });

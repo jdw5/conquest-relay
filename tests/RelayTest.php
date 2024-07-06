@@ -1,7 +1,6 @@
 <?php
 
 use Conquest\Relay\Facades\Relay;
-use Conquest\Relay\Http\Resources\LangResource;
 
 beforeEach(function () {
     app()->setLocale(config('app.locale'));
@@ -23,7 +22,7 @@ it('accepts keys to retrieve', function () {
     expect($translations)->toHaveLength(2);
 });
 
-it('accepts wildcard keys', function () {
+it('accepts wildcard dot notation keys', function () {
     $translations = Relay::keys('messages.events.*')->getTranslations();
     expect($translations)->toHaveLength(count(collect(require relay()->getRelayPath().'/messages.php')->get('events')));
 });
@@ -38,4 +37,3 @@ it('uses global helper function', function () {
     expect($translations)->toBeArray()
         ->toHaveLength(collect(require relay()->getRelayPath().'/messages.php')->flatten()->count());
 });
-
